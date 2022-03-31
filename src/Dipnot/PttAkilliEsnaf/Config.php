@@ -10,17 +10,17 @@ class Config
     /**
      * @var string $_clientId
      */
-    private $_clientId = "";
+    private $_clientId;
 
     /**
      * @var string $_apiUser
      */
-    private $_apiUser = "";
+    private $_apiUser;
 
     /**
      * @var string $_apiPass
      */
-    private $_apiPass = "";
+    private $_apiPass;
 
     /**
      * @var bool $_isTestModeEnabled
