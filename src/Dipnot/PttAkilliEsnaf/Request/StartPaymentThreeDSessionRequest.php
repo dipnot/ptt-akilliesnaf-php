@@ -12,6 +12,11 @@ use Exception;
 class StartPaymentThreeDSessionRequest extends Request
 {
     /**
+     * @var object $_response
+     */
+    private $_response;
+
+    /**
      * From official docs: 3D sonucunun dönüleceği url
      *
      * @var string $_callbackUrl
@@ -127,7 +132,39 @@ class StartPaymentThreeDSessionRequest extends Request
     }
 
     /**
-     * @return mixed
+     * @return object
+     * @throws Exception
+     */
+    public function getResponse()
+    {
+        if(!$this->_response) {
+            throw new Exception("Before that execute() must be called");
+        }
+
+        return $this->_response;
+    }
+
+    /**
+     * Returns the iframe URL based on the test mode
+     *
+     * @return string
+     * @throws Exception
+     */
+    public function getIframeUrl()
+    {
+        if(!$this->_response) {
+            throw new Exception("Before that execute() must be called");
+        }
+
+        if($this->_config->isTestModeEnabled()) {
+            return self::API_ENDPOINT_TEST . "/threeDSecure/{$this->_response->ThreeDSessionId}";
+        }
+
+        return self::API_ENDPOINT_PROD . "/threeDSecure/{$this->_response->ThreeDSessionId}";
+    }
+
+    /**
+     * @return $this
      * @throws Exception
      */
     public function execute()
@@ -156,6 +193,18 @@ class StartPaymentThreeDSessionRequest extends Request
             "installmentCount" => $this->getInstallmentCount()
         ];
 
-        return $this->_client->post("/startPaymentThreeDSession", $postData);
+        $this->_response = $this->_client->post("/startPaymentThreeDSession", $postData);
+
+        // Check the code if the request was successful
+        if(isset($this->_response->Code) && $this->_response->Code && intval($this->_response->Code) !== 0) {
+            throw new Exception(json_encode($this->_response));
+        }
+
+        // Check if the response has "ThreeDSessionId" property
+        if(!isset($this->_response->ThreeDSessionId) || !$this->_response->ThreeDSessionId) {
+            throw new Exception(json_encode($this->_response));
+        }
+
+        return $this;
     }
 }
