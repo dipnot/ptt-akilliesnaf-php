@@ -5,7 +5,7 @@ namespace Dipnot\PttAkilliEsnaf;
  * Class Response
  * @package Dipnot\PttAkilliEsnaf
  */
-class Response
+abstract class Response
 {
     /**
      * @var Config $_config
