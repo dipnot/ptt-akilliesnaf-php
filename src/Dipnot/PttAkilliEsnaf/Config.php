@@ -93,4 +93,16 @@ class Config
     {
         return $this->_isTestModeEnabled;
     }
+
+    /**
+     * Helper that checks if all required properties are set
+     *
+     * @return bool
+     */
+    public function isAllSet()
+    {
+        return $this->getClientId() &&
+            $this->getApiUser() &&
+            $this->getApiPass();
+    }
 }
