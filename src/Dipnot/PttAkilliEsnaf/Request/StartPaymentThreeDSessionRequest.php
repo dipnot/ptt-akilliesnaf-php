@@ -9,7 +9,7 @@ use Exception;
  * Class CreateStartPayment3DSessionRequest
  * @package Dipnot\PttAkilliEsnaf\Request
  */
-class CreateStartPaymentThreeDSessionRequest extends Request
+class StartPaymentThreeDSessionRequest extends Request
 {
     /**
      * From official docs: 3D sonucunun dönüleceği url
