@@ -4,6 +4,8 @@
 
 Unofficial PHP wrapper for [PTT Akıllı Esnaf API](https://akilliesnaf.ptt.gov.tr/developer/)
 
+We got a lot of help from the [sample codes](https://akilliesnaf.ptt.gov.tr/developer/#acik-kaynak).
+
 Only covers `threeDSecure` (Ortak Ödeme Sayfası)
 
 `threeDPayment` (3D ile Ödeme), `inquiry` (Ödeme Sorgulama), `void` (İptal), `refund` (İade) or `history` (İşlem Listeleme) are not our goal currently. We would be happy to see your contributions!
