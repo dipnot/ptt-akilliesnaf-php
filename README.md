@@ -27,7 +27,7 @@ You can see the full example in [examples](https://github.com/dipnot/ptt-akillie
 ## Test cards
 While developing the package, the test cards in the official documentation were not working. So we contacted the authorities and got the following values for testing.
 
-|||    
+||Value|    
 |--|--|  
 |Card holder|Fill randomly|    
 |Card number|4159560047417732|    
