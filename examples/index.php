@@ -9,7 +9,7 @@ $config = require_once("./_config.php");
 
 $orderId = "ORDERCODE" . time();
 $startPayment3DSessionRequest = new StartPaymentThreeDSessionRequest($config);
-$startPayment3DSessionRequest->setCallbackUrl("http://localhost:8083/ptt-akilliesnaf-php/examples/callback.php");
+$startPayment3DSessionRequest->setCallbackUrl("http://localhost:8081/ptt-akilliesnaf-php/examples/callback.php");
 $startPayment3DSessionRequest->setOrderId($orderId);
 $startPayment3DSessionRequest->setAmount(1000);
 $startPayment3DSessionRequest->setCurrency(Currency::TL);
