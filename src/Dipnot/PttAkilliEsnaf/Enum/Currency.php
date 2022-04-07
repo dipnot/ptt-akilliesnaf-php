@@ -7,5 +7,5 @@ namespace Dipnot\PttAkilliEsnaf\Enum;
  */
 abstract class Currency
 {
-    const TL = 942;
+    const TL = 949;
 }
