@@ -35,6 +35,7 @@ While developing the package, the test cards in the official documentation were 
 |Card number|4159560047417732|    
 |Card expiry date (Month/Year)|08/24|    
 |Card CVV|123|
+|3D Secure code|You can get it under the countdown timer on the 3D Secure page|
 
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-%232fdcff)](https://github.com/dipnot/ptt-akilliesnaf-php/blob/main/LICENSE)
