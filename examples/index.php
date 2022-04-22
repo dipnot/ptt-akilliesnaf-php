@@ -30,6 +30,14 @@ try {
 
     <h1>Payment iframe:</h1>
     <p>Will redirect to <?= $request->getCallbackUrl() ?></p>
+    <p>Test cards</p>
+    <ul>
+        <li>Card holder: Fill randomly</li>
+        <li>Card number: 4159560047417732</li>
+        <li>Card expiry date (Month/Year): 08/24</li>
+        <li>Card CVV: 123</li>
+        <li>3D Secure code: You can get it under the countdown timer on the 3D Secure page</li>
+    </ul>
     <iframe src="<?= $request->getIframeUrl() ?>" width="1010" height="480"></iframe>
     <?php
 } catch(Exception $e) {
