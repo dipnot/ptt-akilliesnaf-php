@@ -4,12 +4,12 @@ use Dipnot\PttAkilliEsnaf\Request;
 use Exception;
 
 /**
- * Makes POST request to "API_ENDPOINT/startPaymentThreeDSession"
+ * Makes POST request to "API_ENDPOINT/threeDPayment"
  *
- * Class CreateStartPayment3DSessionRequest
+ * Class ThreeDPaymentRequest
  * @package Dipnot\PttAkilliEsnaf\Request
  */
-class StartPaymentThreeDSessionRequest extends Request
+class ThreeDPaymentRequest extends Request
 {
     /**
      * @var object $_response

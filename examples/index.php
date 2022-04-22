@@ -1,6 +1,6 @@
 <?php
 use Dipnot\PttAkilliEsnaf\Enum\Currency;
-use Dipnot\PttAkilliEsnaf\Request\StartPaymentThreeDSessionRequest;
+use Dipnot\PttAkilliEsnaf\Request\ThreeDPaymentRequest;
 
 require_once("./../vendor/autoload.php");
 
@@ -8,15 +8,15 @@ require_once("./../vendor/autoload.php");
 $config = require_once("./_config.php");
 
 $orderId = "ORDERCODE" . time();
-$startPayment3DSessionRequest = new StartPaymentThreeDSessionRequest($config);
-$startPayment3DSessionRequest->setCallbackUrl("http://localhost:8081/ptt-akilliesnaf-php/examples/callback.php");
-$startPayment3DSessionRequest->setOrderId($orderId);
-$startPayment3DSessionRequest->setAmount(1000);
-$startPayment3DSessionRequest->setCurrency(Currency::TL);
-$startPayment3DSessionRequest->setInstallmentCount(1);
+$threeDPaymentRequest = new ThreeDPaymentRequest($config);
+$threeDPaymentRequest->setCallbackUrl("http://localhost:8081/ptt-akilliesnaf-php/examples/callback.php");
+$threeDPaymentRequest->setOrderId($orderId);
+$threeDPaymentRequest->setAmount(1000);
+$threeDPaymentRequest->setCurrency(Currency::TL);
+$threeDPaymentRequest->setInstallmentCount(1);
 
 try {
-    $request = $startPayment3DSessionRequest->execute();
+    $request = $threeDPaymentRequest->execute();
     ?>
 
     <h1>Response:</h1>
