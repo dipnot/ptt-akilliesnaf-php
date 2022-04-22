@@ -193,7 +193,7 @@ class StartPaymentThreeDSessionRequest extends Request
             "installmentCount" => $this->getInstallmentCount()
         ];
 
-        $this->_response = $this->_client->post("/startPaymentThreeDSession", $postData);
+        $this->_response = $this->_client->post("/threeDPayment", $postData);
 
         // Check the code if the request was successful
         if(isset($this->_response->Code) && $this->_response->Code && intval($this->_response->Code) !== 0) {
