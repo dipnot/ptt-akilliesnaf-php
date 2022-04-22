@@ -116,7 +116,7 @@ class ThreeDPaymentRequest extends Request
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getInstallmentCount()
     {
