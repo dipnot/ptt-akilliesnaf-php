@@ -92,9 +92,7 @@ class Request
 
         $hashingBytes = hash("sha512", $hashString, true);
 
-        $hash = base64_encode($hashingBytes);
-
-        return $hash;
+        return base64_encode($hashingBytes);
     }
 
     /**
