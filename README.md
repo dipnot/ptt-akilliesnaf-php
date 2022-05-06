@@ -23,8 +23,78 @@ You can install via [Composer](https://getcomposer.org/).
 
 ## Usage
 You can see the full example in [examples](https://github.com/dipnot/ptt-akilliesnaf-php/tree/main/examples) folder.
+### Config
+All request are needs a Config.
+```php
+use Dipnot\PttAkilliEsnaf\Config;
 
-// TODO: Detailed usage will be added.
+$config = new Config(true); // Don't forget to change it to "false" in production :)
+$config->setClientId("1000000032");
+$config->setApiUser("Entegrasyon_01");
+$config->setApiPass("gkk4l2*TY112");
+```
+
+###Making a `threeDPayment` request
+```php
+use Dipnot\PttAkilliEsnaf\Enum\Currency;
+use Dipnot\PttAkilliEsnaf\Request\ThreeDPaymentRequest;
+
+// $config = ...;
+
+$orderId = "ORDERCODE" . time();
+
+$threeDPaymentRequest = new ThreeDPaymentRequest($config);
+$threeDPaymentRequest->setCallbackUrl("http://localhost/ptt-akilliesnaf-php/examples/callback.php");
+$threeDPaymentRequest->setOrderId($orderId);
+$threeDPaymentRequest->setAmount(1000);
+$threeDPaymentRequest->setCurrency(Currency::TL);
+$threeDPaymentRequest->setInstallmentCount(1);
+
+try {
+    $request = $threeDPaymentRequest->execute();
+    
+    ?>
+    <h1>Response:</h1>
+    <?php
+    echo "<pre>";
+    print_r($request->getResponse());
+    echo "</pre>";
+    ?>
+
+    <hr />
+
+    <h1>Payment iframe:</h1>
+    <iframe src="<?= $request->getIframeUrl() ?>" width="1010" height="480"></iframe>
+    <?php
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+```
+
+###Making an `inquiry` request
+```php
+use Dipnot\PttAkilliEsnaf\Request\InquiryRequest;
+
+// $config = ...;
+
+$orderId = "SAMPLEORDERCODE";
+
+$inquiryRequest = new InquiryRequest($config);
+$inquiryRequest->setOrderId($orderId);
+
+try {
+    $request = $inquiryRequest->execute();
+    ?>
+
+    <h1>Response:</h1>
+    <?php
+    echo "<pre>";
+    print_r($request->getResponse());
+    echo "</pre>";
+} catch(Exception $e) {
+    echo $e->getMessage();
+}
+```
 
 ## Test cards
 While developing the package, the test cards in the official documentation were not working. So we contacted the authorities and got the following values for testing.
