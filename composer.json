@@ -1,0 +1,30 @@
+{
+  "name": "dipnot/ptt-akilliesnaf-php",
+  "description": "Unofficial PHP wrapper for PTT Akıllı Esnaf API",
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://www.dipnot.com.tr/",
+  "keywords": [
+    "api",
+    "composer",
+    "php library",
+    "payment system",
+    "ptt akıllı esnaf"
+  ],
+  "authors": [
+    {
+      "name": "Dipnot and Contributors",
+      "homepage": "https://github.com/dipnot/ptt-akilliesnaf-php/contributors"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.36",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dipnot\\": "src/Dipnot/"
+    }
+  }
+}
