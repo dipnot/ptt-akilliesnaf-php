@@ -34,7 +34,7 @@ $config->setApiUser("Entegrasyon_01");
 $config->setApiPass("gkk4l2*TY112");
 ```
 
-###Making a `threeDPayment` request
+### Making a `threeDPayment` request
 ```php
 use Dipnot\PttAkilliEsnaf\Enum\Currency;
 use Dipnot\PttAkilliEsnaf\Request\ThreeDPaymentRequest;
@@ -71,7 +71,7 @@ try {
 }
 ```
 
-###Making an `inquiry` request
+### Making an `inquiry` request
 ```php
 use Dipnot\PttAkilliEsnaf\Request\InquiryRequest;
 
