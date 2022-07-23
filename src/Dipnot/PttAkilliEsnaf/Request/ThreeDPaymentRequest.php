@@ -52,6 +52,18 @@ class ThreeDPaymentRequest extends Request
     private $_installmentCount = 0;
 
     /**
+     * @return bool
+     */
+    private function isAllSet()
+    {
+        return $this->getCallbackUrl() &&
+            $this->getOrderId() &&
+            $this->getAmount() &&
+            $this->getCurrency() &&
+            $this->getInstallmentCount();
+    }
+
+    /**
      * @return string
      */
     public function getCallbackUrl()
@@ -169,7 +181,7 @@ class ThreeDPaymentRequest extends Request
      */
     public function execute()
     {
-        if(!$this->getCallbackUrl() || !$this->getOrderId() || !$this->getAmount() || !$this->getCurrency() || !$this->getInstallmentCount()) {
+        if(!$this->isAllSet()) {
             throw new Exception("'callbackUrl', 'orderId', 'amount', 'currency' and 'installmentCount' must be set before executing the request.");
         }
 

@@ -24,6 +24,14 @@ class InquiryRequest extends Request
     private $_orderId;
 
     /**
+     * @return bool
+     */
+    private function isAllSet()
+    {
+        return $this->getOrderId();
+    }
+
+    /**
      * @return string
      */
     public function getOrderId()
@@ -58,7 +66,7 @@ class InquiryRequest extends Request
      */
     public function execute()
     {
-        if(!$this->getOrderId()) {
+        if(!$this->isAllSet()) {
             throw new Exception("'orderId' must be set before executing the request.");
         }
 
