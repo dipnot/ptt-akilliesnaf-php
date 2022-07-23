@@ -46,7 +46,7 @@ class InquiryRequest extends Request
     public function getResponse()
     {
         if(!$this->_response) {
-            throw new Exception("Before that execute() must be called");
+            throw new Exception("Before that 'execute()' must be called");
         }
 
         return $this->_response;
@@ -59,11 +59,11 @@ class InquiryRequest extends Request
     public function execute()
     {
         if(!$this->getOrderId()) {
-            throw new Exception("orderId must be set before executing the request.");
+            throw new Exception("'orderId' must be set before executing the request.");
         }
 
         if(!$this->_config->isAllSet()) {
-            throw new Exception("clientId, apiUser and apiPass must be set for Config before executing the request.");
+            throw new Exception("'clientId', 'apiUser' and 'apiPass' must be set for Config before executing the request.");
         }
 
         $postData = [

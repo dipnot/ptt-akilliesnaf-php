@@ -138,7 +138,7 @@ class ThreeDPaymentRequest extends Request
     public function getResponse()
     {
         if(!$this->_response) {
-            throw new Exception("Before that execute() must be called");
+            throw new Exception("Before that 'execute()' must be called");
         }
 
         return $this->_response;
@@ -153,7 +153,7 @@ class ThreeDPaymentRequest extends Request
     public function getIframeUrl()
     {
         if(!$this->_response) {
-            throw new Exception("Before that execute() must be called");
+            throw new Exception("Before that 'execute()' must be called");
         }
 
         if($this->_config->isTestModeEnabled()) {
@@ -170,11 +170,11 @@ class ThreeDPaymentRequest extends Request
     public function execute()
     {
         if(!$this->getCallbackUrl() || !$this->getOrderId() || !$this->getAmount() || !$this->getCurrency() || !$this->getInstallmentCount()) {
-            throw new Exception("callbackUrl, orderId, amount, currency and installmentCount must be set before executing the request.");
+            throw new Exception("'callbackUrl', 'orderId', 'amount', 'currency' and 'installmentCount' must be set before executing the request.");
         }
 
         if(!$this->_config->isAllSet()) {
-            throw new Exception("clientId, apiUser and apiPass must be set for Config before executing the request.");
+            throw new Exception("'clientId', 'apiUser' and 'apiPass' must be set for Config before executing the request.");
         }
 
         $postData = [
