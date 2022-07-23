@@ -4,7 +4,7 @@ use Dipnot\PttAkilliEsnaf\Request;
 use Exception;
 
 /**
- * Makes POST request to "API_ENDPOINT/inquiry"
+ * Makes POST request to "{API_ENDPOINT}/inquiry"
  *
  * Class InquiryRequest
  * @package Dipnot\PttAkilliEsnaf\Request
@@ -58,12 +58,10 @@ class InquiryRequest extends Request
      */
     public function execute()
     {
-        // Check if all required properties are set
         if(!$this->getOrderId()) {
             throw new Exception("orderId must be set before executing the request.");
         }
 
-        // Check if all required Config properties are set
         if(!$this->_config->isAllSet()) {
             throw new Exception("clientId, apiUser and apiPass must be set for Config before executing the request.");
         }

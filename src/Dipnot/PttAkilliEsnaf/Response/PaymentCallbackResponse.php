@@ -90,7 +90,6 @@ class PaymentCallbackResponse extends Response
      */
     private function isBankResponseCodeSucceed()
     {
-        // FIXME: 00 is not correct. The correct value should be updated after learning from the authorities.
         return $this->getData("BankResponseCode") === "00";
     }
 

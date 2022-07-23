@@ -76,6 +76,7 @@ class Request
 
     /**
      * Generates hash
+     *
      * @see https://akilliesnaf.ptt.gov.tr/developer/#hash-mekanizmasi
      *
      * @return string

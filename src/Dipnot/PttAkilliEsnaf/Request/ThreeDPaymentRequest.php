@@ -4,7 +4,7 @@ use Dipnot\PttAkilliEsnaf\Request;
 use Exception;
 
 /**
- * Makes POST request to "API_ENDPOINT/threeDPayment"
+ * Makes POST request to "{API_ENDPOINT}/threeDPayment"
  *
  * Class ThreeDPaymentRequest
  * @package Dipnot\PttAkilliEsnaf\Request
@@ -169,12 +169,10 @@ class ThreeDPaymentRequest extends Request
      */
     public function execute()
     {
-        // Check if all required properties are set
         if(!$this->getCallbackUrl() || !$this->getOrderId() || !$this->getAmount() || !$this->getCurrency() || !$this->getInstallmentCount()) {
             throw new Exception("callbackUrl, orderId, amount, currency and installmentCount must be set before executing the request.");
         }
 
-        // Check if all required Config properties are set
         if(!$this->_config->isAllSet()) {
             throw new Exception("clientId, apiUser and apiPass must be set for Config before executing the request.");
         }
@@ -195,12 +193,10 @@ class ThreeDPaymentRequest extends Request
 
         $this->_response = $this->_client->post("/threeDPayment", $postData);
 
-        // Check the code if the request was successful
         if(isset($this->_response->Code) && $this->_response->Code && intval($this->_response->Code) !== 0) {
             throw new Exception(json_encode($this->_response));
         }
 
-        // Check if the response has "ThreeDSessionId" property
         if(!isset($this->_response->ThreeDSessionId) || !$this->_response->ThreeDSessionId) {
             throw new Exception(json_encode($this->_response));
         }
