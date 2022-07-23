@@ -96,7 +96,7 @@ class Request
     }
 
     /**
-     * Creates a HttpClient instance based on the test mode
+     * Creates an HttpClient instance based on the test mode
      *
      * @return HttpClient
      */

@@ -31,7 +31,7 @@ class HttpClient
     }
 
     /**
-     * Makes a HTTP POST request
+     * Makes an HTTP POST request
      *
      * @param string $uri
      * @param mixed $body
@@ -43,7 +43,7 @@ class HttpClient
     }
 
     /**
-     * Makes a HTTP request
+     * Makes an HTTP request
      *
      * @param string $method
      * @param string $uri
