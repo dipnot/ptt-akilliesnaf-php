@@ -1,6 +1,5 @@
-
-# PTT Akıllı Esnaf API Wrapper for PHP
 [![Latest Stable Version](https://poser.pugx.org/dipnot/ptt-akilliesnaf-php/v)](https://packagist.org/packages/dipnot/ptt-akilliesnaf-php) [![Total Downloads](https://poser.pugx.org/dipnot/ptt-akilliesnaf-php/downloads)](https://packagist.org/packages/dipnot/ptt-akilliesnaf-php)
+# PTT Akıllı Esnaf API Wrapper for PHP
 
 Unofficial PHP wrapper for [PTT Akıllı Esnaf API](https://akilliesnaf.ptt.gov.tr/developer/)
 

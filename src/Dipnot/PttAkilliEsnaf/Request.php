@@ -76,6 +76,7 @@ class Request
 
     /**
      * Generates hash
+     *
      * @see https://akilliesnaf.ptt.gov.tr/developer/#hash-mekanizmasi
      *
      * @return string
@@ -96,7 +97,7 @@ class Request
     }
 
     /**
-     * Creates a HttpClient instance based on the test mode
+     * Creates an HttpClient instance based on the test mode
      *
      * @return HttpClient
      */

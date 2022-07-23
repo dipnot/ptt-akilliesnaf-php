@@ -4,7 +4,7 @@ use Dipnot\PttAkilliEsnaf\Request;
 use Exception;
 
 /**
- * Makes POST request to "API_ENDPOINT/inquiry"
+ * Makes POST request to "{API_ENDPOINT}/inquiry"
  *
  * Class InquiryRequest
  * @package Dipnot\PttAkilliEsnaf\Request
@@ -22,6 +22,14 @@ class InquiryRequest extends Request
      * @var string $_orderId
      */
     private $_orderId;
+
+    /**
+     * @return bool
+     */
+    private function isAllSet()
+    {
+        return $this->getOrderId();
+    }
 
     /**
      * @return string
@@ -46,7 +54,7 @@ class InquiryRequest extends Request
     public function getResponse()
     {
         if(!$this->_response) {
-            throw new Exception("Before that execute() must be called");
+            throw new Exception("Before that 'execute()' must be called");
         }
 
         return $this->_response;
@@ -58,14 +66,12 @@ class InquiryRequest extends Request
      */
     public function execute()
     {
-        // Check if all required properties are set
-        if(!$this->getOrderId()) {
-            throw new Exception("orderId must be set before executing the request.");
+        if(!$this->isAllSet()) {
+            throw new Exception("'orderId' must be set before executing the request.");
         }
 
-        // Check if all required Config properties are set
         if(!$this->_config->isAllSet()) {
-            throw new Exception("clientId, apiUser and apiPass must be set for Config before executing the request.");
+            throw new Exception("'clientId', 'apiUser' and 'apiPass' must be set for Config before executing the request.");
         }
 
         $postData = [
